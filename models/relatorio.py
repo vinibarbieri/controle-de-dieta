@@ -5,10 +5,20 @@ class Relatorio:
     def gerar_resumo(self):
         historico = self.usuario.resumo_diario()
         print("\nResumo Diário:\n")
+
+        ultima_data = None
+        refeicao_num = 1
+
         for dia in historico:
-            print(f"Data: {dia['data']}")
+            if dia["data"] != ultima_data:
+                refeicao_num = 1
+                ultima_data = dia["data"]
+
+            print(f"Refeição {refeicao_num} do dia {dia['data']}:")
             print(f"Calorías: {dia['calorias']}\nProteínas: {dia['proteina']}\nCarboidratos: {dia['carboidrato']}\nGorduras: {dia['gordura']}")
             print(f"Alimentos: {', '.join(dia['alimentos'])}\n")
+
+            refeicao_num += 1
 
         print("\nTMB (Metabolismo Basal): {:.2f} kcal".format(self.usuario.calcular_tmb()))
         print("GET (Gasto Energético Total): {:.2f} kcal".format(self.usuario.calcular_get()))

@@ -1,5 +1,8 @@
+import uuid
+
 class Usuario:
-    def __init__(self, nome, idade, peso, altura, objetivo, nivel_atividade):
+    def __init__(self, nome, idade, peso, altura, objetivo, nivel_atividade, id=None):
+        self.id = id or str(uuid.uuid4())
         self.nome = nome
         self.idade = idade
         self.peso = peso
@@ -10,14 +13,19 @@ class Usuario:
 
     def to_dict(self):
         return {
-            "nome": self.nome,
-            "idade": self.idade,
-            "peso": self.peso,
-            "altura": self.altura,
-            "objetivo": self.objetivo,
-            "nivel_atividade": self.nivel_atividade,
+            "id": self.get_id(),
+            "tipo": self.__class__.__name__,
+            "nome": self.get_nome(),
+            "idade": self.get_idade(),
+            "peso": self.get_peso(),
+            "altura": self.get_altura(),
+            "objetivo": self.get_objetivo(),
+            "nivel_atividade": self.get_nivel_atividade(),
             "consumo_diario": [c.to_dict() for c in self.consumo_diario]
         }
+
+    def get_id(self):
+        return self.id
     
     def get_nome(self):
         return self.nome

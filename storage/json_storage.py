@@ -1,6 +1,6 @@
 import json
 import os
-from models.usuario import Usuario
+from models.usuario import Usuario, UsuarioAtleta, UsuarioComum, UsuarioSedentario
 from models.consumo import ConsumoDiario
 from models.alimento import Alimento
 
@@ -10,12 +10,13 @@ def salvar_usuarios(usuarios):
     dados = []
     for u in usuarios:
         dados.append({
-            "nome": u.nome,
-            "idade": u.idade,
-            "peso": u.peso,
-            "altura": u.altura,
-            "objetivo": u.objetivo,
-            "nivel_atividade": u.nivel_atividade
+            "id": u.get_id(),
+            "nome": u.get_nome(),
+            "idade": u.get_idade(),
+            "peso": u.get_peso(),
+            "altura": u.get_altura(),
+            "objetivo": u.get_objetivo(),
+            "nivel_atividade": u.get_nivel_atividade()
         })
     with open(ARQUIVO_USUARIOS, "w") as f:
         json.dump([u.to_dict() for u in usuarios], f, indent=2)
@@ -25,9 +26,18 @@ def carregar_usuarios():
         return []
     with open(ARQUIVO_USUARIOS, "r") as f:
         dados = json.load(f)
+
     usuarios = []
     for u in dados:
-        usuario = Usuario(u["nome"], u["idade"], u["peso"], u["altura"], u["objetivo"], u["nivel_atividade"])
+        tipo = u.get("tipo", "Usuario")
+        classe = {
+            "UsuarioComum": UsuarioComum,
+            "UsuarioAtleta": UsuarioAtleta,
+            "UsuarioSedentario": UsuarioSedentario
+        }.get(tipo, Usuario)
+        
+        usuario = classe(u["nome"], u["idade"], u["peso"], u["altura"], u["objetivo"], u["nivel_atividade"], u["id"])
+
         for c in u.get("consumo_diario", []):
             alimentos = [Alimento(**a) for a in c["alimentos"]]
             consumo = ConsumoDiario(alimentos)

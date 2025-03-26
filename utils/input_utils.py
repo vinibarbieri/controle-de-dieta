@@ -1,5 +1,6 @@
 import re
 
+# Verifica se o input é válido
 def input_validado(prompt, tipo=float, condicao=lambda x: True, erro="Valor inválido"):
     while True:
         try:
@@ -10,6 +11,7 @@ def input_validado(prompt, tipo=float, condicao=lambda x: True, erro="Valor inv�
         except ValueError:
             print(erro)
 
+# Verifica se o nome é valido
 def input_nome(prompt):
     while True:
         nome = input(prompt).strip()
@@ -17,6 +19,7 @@ def input_nome(prompt):
             return nome
         print("Nome inválido. Use apenas letras e espaços.")
 
+# Verifica se a opção escolhida é válida
 def input_opcao(prompt, opcoes):
     while True:
         valor = input(prompt).strip().lower()

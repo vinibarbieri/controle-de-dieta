@@ -19,6 +19,7 @@ def iniciar_interface():
 
         if opcao == "1":
             usuario = cadastrar_usuario()
+            usuarios.append(usuario)
             menu_usuario(usuario)
         elif opcao == "2":
             usuario = selecionar_usuario()
@@ -26,11 +27,10 @@ def iniciar_interface():
                 menu_usuario(usuario)
         elif opcao == "3":
             print("Saindo...")
-            salvar_usuarios(usuarios)
             break
         else:
             print("Opção inválida.")
-
+        
 def menu_usuario(usuario):
     while True:
         print(f"\nUsuário atual: {usuario.get_nome()}")
@@ -46,7 +46,6 @@ def menu_usuario(usuario):
         elif opcao == "3":
             alterar_usuario(usuario)
         elif opcao == "4":
-            salvar_usuarios(usuarios)
             break
         else:
             print("Opção inválida.")
@@ -57,7 +56,7 @@ def selecionar_usuario():
         return None
     print("\nUsuários cadastrados:")
     for i, u in enumerate(usuarios):
-        print(f"{i + 1}. {u.nome}")
+        print(f"{i + 1}. {u.get_nome()}")
     idx = input_validado("Escolha o número do usuário: ", int, lambda x: 1 <= x <= len(usuarios))
     return usuarios[idx - 1]
 
@@ -77,6 +76,13 @@ def registrar_alimentos(usuario):
         gordura = input_validado("Gordura: ", float, lambda x: x >= 0)
         alimentos.append(Alimento(nome, quantidade, porcao, calorias, proteina, carbo, gordura))
     usuario.adicionar_consumo(ConsumoDiario(alimentos))
+    
+    for i, u in enumerate(usuarios):
+        if u.get_id() == usuario.get_id():
+            usuarios[i] = usuario
+            break
+    
+    salvar_usuarios(usuarios)
 
 
 

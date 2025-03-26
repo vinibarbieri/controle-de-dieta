@@ -1,11 +1,13 @@
 [
   {
+    "id": 1,
+    "tipo": "UsuarioSedentario",
     "nome": "vini",
     "idade": 22,
     "peso": 70.0,
     "altura": 170.0,
     "objetivo": "ganho",
-    "nivel_atividade": "intenso",
+    "nivel_atividade": 1,
     "consumo_diario": [
       {
         "data": "2025-03-25",
@@ -52,16 +54,32 @@
             "gorduras": 15.0
           }
         ]
+      },
+      {
+        "data": "2025-03-26",
+        "alimentos": [
+          {
+            "nome": "bolacha",
+            "quantidade_gramas": 100.0,
+            "peso_por_porcao": 50.0,
+            "calorias": 100.0,
+            "proteinas": 0.0,
+            "carboidratos": 10.0,
+            "gorduras": 10.0
+          }
+        ]
       }
     ]
   },
   {
+    "id": 2,
+    "tipo": "UsuarioComum",
     "nome": "rafael",
     "idade": 20,
     "peso": 70.0,
     "altura": 178.0,
     "objetivo": "ganho",
-    "nivel_atividade": "moderado",
+    "nivel_atividade": 6,
     "consumo_diario": [
       {
         "data": "2025-03-25",
@@ -97,6 +115,43 @@
             "proteinas": 3.0,
             "carboidratos": 23.0,
             "gorduras": 4.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "tipo": "UsuarioSedentario",
+    "nome": "Bruno",
+    "idade": 30,
+    "peso": 90.0,
+    "altura": 179.0,
+    "objetivo": "perda",
+    "nivel_atividade": 1,
+    "consumo_diario": []
+  },
+  {
+    "id": "95b83578-3e90-4422-b013-728aeaf5041e",
+    "tipo": "UsuarioAtleta",
+    "nome": "Paulo",
+    "idade": 40,
+    "peso": 50.0,
+    "altura": 160.0,
+    "objetivo": "ganho",
+    "nivel_atividade": 6,
+    "consumo_diario": [
+      {
+        "data": "2025-03-26",
+        "alimentos": [
+          {
+            "nome": "ovo",
+            "quantidade_gramas": 100.0,
+            "peso_por_porcao": 50.0,
+            "calorias": 50.0,
+            "proteinas": 1.0,
+            "carboidratos": 1.0,
+            "gorduras": 1.0
           }
         ]
       }

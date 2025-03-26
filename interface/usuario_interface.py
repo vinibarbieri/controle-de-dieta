@@ -31,8 +31,11 @@ def alterar_usuario(usuario):
     print(f"Altura: {usuario.get_altura()} cm")
     print(f"Objetivo: {usuario.get_objetivo()}")
     print(f"Nível de atividade: {usuario.get_nivel_atividade()} vezes por semana")
+    print(f"Voltar")
 
-    opcao = input_opcao("\nO que deseja alterar (nome, idade, peso, altura, objetivo, nivel)? ", ["nome", "idade", "peso", "altura", "objetivo", "nivel"])
+    print(usuarios)
+
+    opcao = input_opcao("\nO que deseja alterar (nome, idade, peso, altura, objetivo, nivel, voltar)? ", ["nome", "idade", "peso", "altura", "objetivo", "nivel", "voltar"])
     if opcao == "nome":
         usuario.set_nome(input_nome("Novo nome: "))
     elif opcao == "idade":
@@ -46,11 +49,20 @@ def alterar_usuario(usuario):
     elif opcao == "nivel":
         usuario.set_nivel_atividade(input_validado("Quantas vezes na semana pratica esporte?: ", int, lambda x: 0 < x <= 7, "Valor inválido"))
         if (usuario.get_nivel_atividade() >= 6):
-            usuario_atualizado = UsuarioAtleta(usuario.get_nome(), usuario.get_idade(), usuario.get_peso(), usuario.get_altura(), usuario.get_objetivo(), usuario.get_nivel_atividade())
+            usuario_atualizado = UsuarioAtleta(usuario.get_nome(), usuario.get_idade(), usuario.get_peso(), usuario.get_altura(), usuario.get_objetivo(), usuario.get_nivel_atividade(), id=usuario.get_id())
         elif (usuario.get_nivel_atividade() >= 2):
-            usuario_atualizado = UsuarioComum(usuario.get_nome(), usuario.get_idade(), usuario.get_peso(), usuario.get_altura(), usuario.get_objetivo(), usuario.get_nivel_atividade())
+            usuario_atualizado = UsuarioComum(usuario.get_nome(), usuario.get_idade(), usuario.get_peso(), usuario.get_altura(), usuario.get_objetivo(), usuario.get_nivel_atividade(), id=usuario.get_id())
         else:
-            usuario_atualizado = UsuarioSedentario(usuario.get_nome(), usuario.get_idade(), usuario.get_peso(), usuario.get_altura(), usuario.get_objetivo(), usuario.get_nivel_atividade())
+            usuario_atualizado = UsuarioSedentario(usuario.get_nome(), usuario.get_idade(), usuario.get_peso(), usuario.get_altura(), usuario.get_objetivo(), usuario.get_nivel_atividade(), id=usuario.get_id())
 
-        index = usuarios.index(usuario)
-        usuarios[index] = usuario_atualizado
+        usuario_atualizado.consumo_diario = usuario.consumo_diario
+
+        for i, u in enumerate(usuarios):
+            if u.get_id() == usuario.get_id():
+                usuarios[i] = usuario_atualizado
+                break
+        
+        salvar_usuarios(usuarios)
+
+    elif opcao == "voltar":
+        return
