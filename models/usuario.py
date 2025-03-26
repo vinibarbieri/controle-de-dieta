@@ -18,22 +18,57 @@ class Usuario:
             "nivel_atividade": self.nivel_atividade,
             "consumo_diario": [c.to_dict() for c in self.consumo_diario]
         }
+    
+    def get_nome(self):
+        return self.nome
+    def set_nome(self, nome):
+        self.nome = nome
+
+    def get_idade(self):
+        return self.idade
+    def set_idade(self, idade):
+        self.idade = idade
+
+    def get_peso(self):
+        return self.peso
+    def set_peso(self, peso):
+        self.peso = peso
+
+    def get_altura(self):
+        return self.altura
+    def set_altura(self, altura):
+        self.altura = altura
+
+    def get_objetivo(self):
+        return self.objetivo
+    def set_objetivo(self, objetivo):
+        self.objetivo = objetivo
+    
+    def get_nivel_atividade(self):
+        return self.nivel_atividade
+    def set_nivel_atividade(self, nivel_atividade):
+        self.nivel_atividade = nivel_atividade
 
     def calcular_tmb(self):
         return 10 * self.peso + 6.25 * self.altura - 5 * self.idade + 5  # Fórmula de Mifflin-St Jeor (masculino)
-
-    def calcular_get(self):
-        fator = {
-            "sedentario": 1.2,
-            "leve": 1.375,
-            "moderado": 1.55,
-            "intenso": 1.725,
-            "muito intenso": 1.9
-        }
-        return self.calcular_tmb() * fator.get(self.nivel_atividade, 1.2)
 
     def adicionar_consumo(self, consumo):
         self.consumo_diario.append(consumo)
 
     def resumo_diario(self):
         return [consumo.resumo() for consumo in self.consumo_diario]
+    
+class UsuarioAtleta(Usuario):
+    def calcular_get(self):
+        tmb = self.calcular_tmb()
+        return tmb * 1.9  # Sempre usa o maior fator de atividade
+
+class UsuarioComum(Usuario):
+    def calcular_get(self):
+        tmb = self.calcular_tmb()
+        return tmb * 1.55  # Sempre usa o segundo maior fator de atividade
+
+class UsuarioSedentario(Usuario):
+    def calcular_get(self):
+        tmb = self.calcular_tmb()
+        return tmb * 1.2  # Sempre usa o menor fator de atividade

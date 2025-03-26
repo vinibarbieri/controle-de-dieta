@@ -11,7 +11,7 @@
         "data": "2025-03-25",
         "alimentos": [
           {
-            "nome": "a",
+            "nome": "amendoim",
             "quantidade_gramas": 234.0,
             "peso_por_porcao": 43.0,
             "calorias": 45.0,
@@ -20,13 +20,36 @@
             "gorduras": 3.0
           },
           {
-            "nome": "db",
+            "nome": "batata",
             "quantidade_gramas": 787.0,
             "peso_por_porcao": 343.0,
             "calorias": 244.0,
             "proteinas": 23.0,
             "carboidratos": 45.0,
             "gorduras": 33.0
+          }
+        ]
+      },
+      {
+        "data": "2025-03-26",
+        "alimentos": [
+          {
+            "nome": "macarr\u00e3o",
+            "quantidade_gramas": 300.0,
+            "peso_por_porcao": 100.0,
+            "calorias": 85.0,
+            "proteinas": 2.0,
+            "carboidratos": 19.0,
+            "gorduras": 4.0
+          },
+          {
+            "nome": "carne",
+            "quantidade_gramas": 230.0,
+            "peso_por_porcao": 100.0,
+            "calorias": 187.0,
+            "proteinas": 21.0,
+            "carboidratos": 3.0,
+            "gorduras": 15.0
           }
         ]
       }
@@ -60,6 +83,20 @@
             "proteinas": 7.0,
             "carboidratos": 0.0,
             "gorduras": 1.0
+          }
+        ]
+      },
+      {
+        "data": "2025-03-26",
+        "alimentos": [
+          {
+            "nome": "macarr\u00e3o",
+            "quantidade_gramas": 239.0,
+            "peso_por_porcao": 100.0,
+            "calorias": 84.0,
+            "proteinas": 3.0,
+            "carboidratos": 23.0,
+            "gorduras": 4.0
           }
         ]
       }

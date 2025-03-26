@@ -18,3 +18,10 @@ class Alimento:
         
         return calorias, proteinas, carboidratos, gorduras
 
+class AlimentoNatural(Alimento):
+    def origem(self):
+        return "Alimento natural, sem aditivos"
+
+class AlimentoIndustrializado(Alimento):
+    def origem(self):
+        return "Alimento industrializado, pode conter conservantes"
