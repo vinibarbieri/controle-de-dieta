@@ -1,0 +1,68 @@
+[
+  {
+    "nome": "vini",
+    "idade": 22,
+    "peso": 70.0,
+    "altura": 170.0,
+    "objetivo": "ganho",
+    "nivel_atividade": "intenso",
+    "consumo_diario": [
+      {
+        "data": "2025-03-25",
+        "alimentos": [
+          {
+            "nome": "a",
+            "quantidade_gramas": 234.0,
+            "peso_por_porcao": 43.0,
+            "calorias": 45.0,
+            "proteinas": 5.0,
+            "carboidratos": 7.0,
+            "gorduras": 3.0
+          },
+          {
+            "nome": "db",
+            "quantidade_gramas": 787.0,
+            "peso_por_porcao": 343.0,
+            "calorias": 244.0,
+            "proteinas": 23.0,
+            "carboidratos": 45.0,
+            "gorduras": 33.0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nome": "rafael",
+    "idade": 20,
+    "peso": 70.0,
+    "altura": 178.0,
+    "objetivo": "ganho",
+    "nivel_atividade": "moderado",
+    "consumo_diario": [
+      {
+        "data": "2025-03-25",
+        "alimentos": [
+          {
+            "nome": "arroz",
+            "quantidade_gramas": 300.0,
+            "peso_por_porcao": 100.0,
+            "calorias": 70.0,
+            "proteinas": 1.0,
+            "carboidratos": 28.0,
+            "gorduras": 1.0
+          },
+          {
+            "nome": "ovo",
+            "quantidade_gramas": 100.0,
+            "peso_por_porcao": 50.0,
+            "calorias": 60.0,
+            "proteinas": 7.0,
+            "carboidratos": 0.0,
+            "gorduras": 1.0
+          }
+        ]
+      }
+    ]
+  }
+]

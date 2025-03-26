@@ -5,6 +5,13 @@ class ConsumoDiario:
         self.data = str(date.today())
         self.alimentos = alimentos  # Lista de objetos Alimento
 
+    def to_dict(self):
+        return {
+            "data": self.data,
+            "alimentos": [a.__dict__ for a in self.alimentos]
+        }
+
+
     def nutrientes_totais(self):
         total_calorias = 0
         total_proteinas = 0
