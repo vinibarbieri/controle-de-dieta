@@ -44,7 +44,7 @@ def alterar_usuario(usuario):
         usuario.set_altura(input_validado("Nova altura (cm): ", float, lambda x: 50 < x < 300, "Altura inválida"))
     elif opcao == "objetivo":
         usuario.set_objetivo(input_opcao("Novo objetivo (perda, manutenção, ganho): ", ["perda", "manutenção", "ganho"]))
-    elif opcao == "nivel":
+    elif opcao == "nivel": # Altera o tipo de usuário
         usuario.set_nivel_atividade(input_validado("Quantas vezes na semana pratica esporte?: ", int, lambda x: 0 < x <= 7, "Valor inválido"))
         if (usuario.get_nivel_atividade() >= 6):
             usuario_atualizado = UsuarioAtleta(usuario.get_nome(), usuario.get_idade(), usuario.get_peso(), usuario.get_altura(), usuario.get_objetivo(), usuario.get_nivel_atividade(), id=usuario.get_id())
@@ -55,6 +55,7 @@ def alterar_usuario(usuario):
 
         usuario_atualizado.consumo_diario = usuario.consumo_diario
 
+        # Atualiza o usuário na lista
         for i, u in enumerate(usuarios):
             if u.get_id() == usuario.get_id():
                 usuarios[i] = usuario_atualizado

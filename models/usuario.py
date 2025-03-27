@@ -66,6 +66,8 @@ class Usuario:
     def resumo_diario(self):
         return [consumo.resumo() for consumo in self.consumo_diario]
     
+# Polimorfismo: cada tipo de usuário tem um método diferente para calcular a quantidade de calorias que ele pode consumir
+# Herança: as classes UsuarioAtleta, UsuarioComum e UsuarioSedentario herdam de Usuario
 class UsuarioAtleta(Usuario):
     def calcular_get(self):
         tmb = self.calcular_tmb()

@@ -8,6 +8,7 @@ class Alimento:
         self.carboidratos = carboidratos
         self.gorduras = gorduras
 
+    # Retorna a quantidade total de calorias, proteínas, carboidratos e gorduras consumidas
     def nutrientes_totais(self):
         porcoes_consumidas = self.quantidade_gramas / self.peso_por_porcao
 
@@ -17,11 +18,3 @@ class Alimento:
         gorduras = self.gorduras * porcoes_consumidas
         
         return calorias, proteinas, carboidratos, gorduras
-
-class AlimentoNatural(Alimento):
-    def origem(self):
-        return "Alimento natural, sem aditivos"
-
-class AlimentoIndustrializado(Alimento):
-    def origem(self):
-        return "Alimento industrializado, pode conter conservantes"

@@ -2,6 +2,7 @@ class Relatorio:
     def __init__(self, usuario):
         self.usuario = usuario
 
+    # Gera um resumo diario do usuario com base no historico de consumo
     def gerar_resumo(self):
         historico = self.usuario.resumo_diario()
         print("\nResumo Diário:\n")

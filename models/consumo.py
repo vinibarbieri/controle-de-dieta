@@ -11,7 +11,7 @@ class ConsumoDiario:
             "alimentos": [a.__dict__ for a in self.alimentos]
         }
 
-
+    # Retorna a quantidade total de calorias, proteínas, carboidratos e gorduras consumidas no dia
     def nutrientes_totais(self):
         total_calorias = 0
         total_proteinas = 0
@@ -27,7 +27,7 @@ class ConsumoDiario:
 
         return total_calorias, total_proteinas, total_carboidratos, total_gorduras
 
-
+    # Retorna um resumo do consumo diário
     def resumo(self):
         calorias, proteinas, carboidratos, gorduras = self.nutrientes_totais()
         return {

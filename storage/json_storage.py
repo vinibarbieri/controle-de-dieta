@@ -8,6 +8,7 @@ ARQUIVO_USUARIOS = "usuarios.json"
 
 def salvar_usuarios(usuarios):
     dados = []
+    # Pega os dados de cada usuário e adiciona na lista
     for u in usuarios:
         dados.append({
             "id": u.get_id(),
@@ -38,6 +39,7 @@ def carregar_usuarios():
         
         usuario = classe(u["nome"], u["idade"], u["peso"], u["altura"], u["objetivo"], u["nivel_atividade"], u["id"])
 
+        # Adiciona os consumos diários
         for c in u.get("consumo_diario", []):
             alimentos = [Alimento(**a) for a in c["alimentos"]]
             consumo = ConsumoDiario(alimentos)
