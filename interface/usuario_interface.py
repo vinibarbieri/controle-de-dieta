@@ -33,8 +33,6 @@ def alterar_usuario(usuario):
     print(f"Nível de atividade: {usuario.get_nivel_atividade()} vezes por semana")
     print(f"Voltar")
 
-    print(usuarios)
-
     opcao = input_opcao("\nO que deseja alterar (nome, idade, peso, altura, objetivo, nivel, voltar)? ", ["nome", "idade", "peso", "altura", "objetivo", "nivel", "voltar"])
     if opcao == "nome":
         usuario.set_nome(input_nome("Novo nome: "))

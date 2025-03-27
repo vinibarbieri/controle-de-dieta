@@ -156,5 +156,49 @@
         ]
       }
     ]
+  },
+  {
+    "id": "4a159f38-b1c9-4bc3-9df0-c9af9eaa81a9",
+    "tipo": "UsuarioAtleta",
+    "nome": "J\u00falia",
+    "idade": 21,
+    "peso": 70.0,
+    "altura": 170.0,
+    "objetivo": "perda",
+    "nivel_atividade": 6,
+    "consumo_diario": [
+      {
+        "data": "2025-03-26",
+        "alimentos": [
+          {
+            "nome": "ovo",
+            "quantidade_gramas": 100.0,
+            "peso_por_porcao": 50.0,
+            "calorias": 40.0,
+            "proteinas": 6.0,
+            "carboidratos": 0.0,
+            "gorduras": 2.0
+          },
+          {
+            "nome": "carne",
+            "quantidade_gramas": 150.0,
+            "peso_por_porcao": 100.0,
+            "calorias": 120.0,
+            "proteinas": 20.0,
+            "carboidratos": 0.0,
+            "gorduras": 10.0
+          },
+          {
+            "nome": "alface",
+            "quantidade_gramas": 30.0,
+            "peso_por_porcao": 10.0,
+            "calorias": 3.0,
+            "proteinas": 0.0,
+            "carboidratos": 0.0,
+            "gorduras": 0.0
+          }
+        ]
+      }
+    ]
   }
 ]
